@@ -13,9 +13,9 @@ class Solution {
         }
         
         for(List<String> str : items){
-            if (str.contains(ruleValue)){
+            if (str.get(index).equals(ruleValue))        //get gives element present in a index given (listname.get(index))
                 count++;
-            }
+            
         }
         return count;
     }
