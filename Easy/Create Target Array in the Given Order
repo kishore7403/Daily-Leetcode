@@ -1,0 +1,28 @@
+class Solution {
+    public int[] createTargetArray(int[] nums, int[] index) {
+        int[] arr =new int [nums.length];
+        for (int i=0;i<arr.length;i++){
+            arr[i]=-1;            
+        }
+        
+        for(int i=0;i<nums.length;i++){
+            if(arr[index[i]]==-1){
+                arr[index[i]]=nums[i];
+            }
+            else{
+                moveRight(arr,index[i],nums[i]);
+            }
+        }
+        return arr;
+    }
+    static int[] moveRight(int[] arr,int index_value,int insert_value){
+        while(index_value<arr.length){
+            int temp=arr[index_value];
+            arr[index_value]=insert_value;
+            index_value++;
+            insert_value=temp;
+            
+        }
+        return arr;
+    }
+}
