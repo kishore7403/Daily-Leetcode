@@ -1,0 +1,38 @@
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int[] op={-1,-1};
+        int start=0;                            //line 1 to 16 finds an elements first index using bsearch.
+        int end=nums.length-1;
+        int mid=0;
+        while (start<=end){
+            mid=(start+end)/2;     
+            if (target>nums[mid]){
+                start=mid+1;
+            }
+            else {
+                end=mid-1;
+
+            }
+        }
+        op[0]=start;                            //line 17 to 30 finds an elements first index using bsearch.
+        start=0;
+        end=nums.length-1;
+        mid=0;
+        while (start<=end){
+            mid=(start+end)/2;     
+            if (target<nums[mid]){
+                end=mid-1;
+            }
+            else {
+                start=mid+1;
+
+            }
+        }
+        op[1]=end;
+        if (op[0]>op[1]){                   // its obivious start index cannot be greater than last index. 
+            op[0]=-1;
+            op[1]=-1;
+        }
+        return op;
+    }
+}
